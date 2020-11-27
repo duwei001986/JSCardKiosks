@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{656FE60F-5BA3-4862-A5C1-A8EE24040370}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JSCardKiosks</RootNamespace>
+    <AssemblyName>JSCardKiosks</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Controls.2.2.5\lib\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="bcp-sdk-1.0.0.RELEASE, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\jar包\bcp-sdk-1.0.0.RELEASE.dll</HintPath>
+    </Reference>
+    <Reference Include="bcprov-jdk15on-1.60, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\jar包\bcprov-jdk15on-1.60.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-codec-1.11">
+      <HintPath>..\..\..\jar包\commons-codec-1.11.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=4.1.1.3497, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.4.1.1.3497\lib\net35\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=4.1.1.3497, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.4.1.1.3497\lib\net35\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.AWT.WinForms, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.AWT.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Beans, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Beans.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Charsets, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Charsets.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Cldrdata, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Cldrdata.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Corba, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Corba.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Jdbc, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Jdbc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Localedata, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Localedata.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Management, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Media, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Misc, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Naming, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Naming.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Nashorn, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Nashorn.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.SwingAWT, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Text, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Tools, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.API.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Bind, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Bind.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Crypto, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Parse, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Parse.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Transform, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Transform.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.WebServices, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.XPath, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.JNI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="QrCodeScan">
+      <HintPath>..\..\..\..\..\功能模块测试例子\ChuangziThreeCaseTest\ChuangziThreeCaseTest\bin\x86\Debug\QrCodeScan.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Access SQLHelper.cs" />
+    <Compile Include="AccessWebInterFace.cs" />
+    <Compile Include="BackManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackManage.Designer.cs">
+      <DependentUpon>BackManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CameraHelper.cs" />
+    <Compile Include="CardBaseData.cs" />
+    <Compile Include="CardCaseHelp.cs" />
+    <Compile Include="CardWriteRead.cs" />
+    <Compile Include="CardWriteRead3T10.cs" />
+    <Compile Include="CardWriteReadT10.cs" />
+    <Compile Include="CRT_591_H001Help.cs" />
+    <Compile Include="DataHaseTable.cs" />
+    <Compile Include="DealAppConfig.cs" />
+    <Compile Include="DealGif.cs" />
+    <Compile Include="DeviceCheck.cs" />
+    <Compile Include="GetSreenDPI.cs" />
+    <Compile Include="HttpPostMessage.cs" />
+    <Compile Include="IDP51PrintControl.cs" />
+    <Compile Include="IdReadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdReadForm.Designer.cs">
+      <DependentUpon>IdReadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdReadForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdReadForm1.Designer.cs">
+      <DependentUpon>IdReadForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputIDNur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputIDNur.Designer.cs">
+      <DependentUpon>InputIDNur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputPhoneNur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputPhoneNur.Designer.cs">
+      <DependentUpon>InputPhoneNur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputPwdForm.Designer.cs">
+      <DependentUpon>InputPwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdVerification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdVerification.Designer.cs">
+      <DependentUpon>IdVerification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPal.Designer.cs">
+      <DependentUpon>MainPal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MakeCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MakeCard.Designer.cs">
+      <DependentUpon>MakeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MechineCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MechineCheck.Designer.cs">
+      <DependentUpon>MechineCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mp3Player.cs" />
+    <Compile Include="NewPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OledbSqlOpration.cs" />
+    <Compile Include="ReadCardAPI.cs" />
+    <Compile Include="SearchCardInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchCardInfo.designer.cs">
+      <DependentUpon>SearchCardInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowCardInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowCardInfo.Designer.cs">
+      <DependentUpon>ShowCardInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="T10ReaderHelp.cs" />
+    <Compile Include="TakePhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakePhoto.Designer.cs">
+      <DependentUpon>TakePhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QRScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QRScan.Designer.cs">
+      <DependentUpon>QRScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsgForm.Designer.cs">
+      <DependentUpon>MsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BlackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlackForm.Designer.cs">
+      <DependentUpon>BlackForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintControl.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicFuction.cs" />
+    <Compile Include="ReadIDBadge.cs" />
+    <Compile Include="ReflectionHelper.cs" />
+    <Compile Include="WebInfeFaceHelp.cs" />
+    <Compile Include="WriteWorkLog.cs" />
+    <EmbeddedResource Include="BackManage.resx">
+      <DependentUpon>BackManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdReadForm1.resx">
+      <DependentUpon>IdReadForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdVerification.resx">
+      <DependentUpon>IdVerification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputIDNur.resx">
+      <DependentUpon>InputIDNur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputPhoneNur.resx">
+      <DependentUpon>InputPhoneNur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputPwdForm.resx">
+      <DependentUpon>InputPwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdReadForm.resx">
+      <DependentUpon>IdReadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPal.resx">
+      <DependentUpon>MainPal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MakeCard.resx">
+      <DependentUpon>MakeCard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MechineCheck.resx">
+      <DependentUpon>MechineCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsgForm.resx">
+      <DependentUpon>MsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlackForm.resx">
+      <DependentUpon>BlackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QRScan.resx">
+      <DependentUpon>QRScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchCardInfo.resx">
+      <DependentUpon>SearchCardInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowCardInfo.resx">
+      <DependentUpon>ShowCardInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakePhoto.resx">
+      <DependentUpon>TakePhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxCieCloudWalkOCXLib">
+      <Guid>{A9B85B05-283C-485A-A633-5F0017F8FF81}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="CieCloudWalkOCXLib">
+      <Guid>{A9B85B05-283C-485A-A633-5F0017F8FF81}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1 %282%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainformJS1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\主页.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainformJS11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainformJS2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\插入身份证.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\人脸识别2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\拍照.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\拍照前的注意事项.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\动态.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\插入身份证 - 副本.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gray.png" />
+    <Content Include="Resources\green.png" />
+    <None Include="Resources\msgbox2.png" />
+    <None Include="Resources\mainformnj.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets'))" />
+  </Target>
+</Project>
